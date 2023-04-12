@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hoisting Page !</h1>
+    <script>
+        //var i
+        "use strict"
+        f1();
+        function f1()
+        {
+            console.log("Inside f1");
+        }
+
+
+        //f2();     // Expression are not Hoisted.
+        var f2 = function ()
+        {
+            console.log("Inside f2. function expression");
+        }
+        f2();
+
+        // var i           // if not use var in for loop
+        f3();
+        function f3()
+        {
+            // var i
+            console.log("Inside f3, fn statement.")
+            //for (var i = 1; i <= 10; i++)
+            for (var i = 1; i <= 10; i++)
+            {
+                console.log(i);
+            }
+            console.log("After loop i Value : " + i);
+        }
+        //console.log("OutSide function value of i : " + i);
+
+    </script>
+</body>
+
+</html>

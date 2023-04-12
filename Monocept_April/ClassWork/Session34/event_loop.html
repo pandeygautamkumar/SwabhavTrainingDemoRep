@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Event Lopp</h1>
+    <button onclick="delayHandeler()">Delay</button>
+    <button onclick="helloHandler()">Hello</button>
+    <button onclick="goodByeHandler()">Good Bye</button>
+
+    <script>
+        function helloHandler()
+        {
+            console.log("Hello Click");
+        }
+        function goodByeHandler()
+        {
+            console.log("Good Bye Click");
+        }
+        function delayHandeler()
+        {
+            delay(5);
+            console.log("End of Script");
+        }
+        function delay(seconds)
+        {
+            var startTime = Date.now();
+            var future = 1000 * seconds;
+            while (Date.now() - startTime < future);
+        }
+    </script>
+</body>
+
+</html>

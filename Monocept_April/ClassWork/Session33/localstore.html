@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>LocalStorage</h1>
+
+    <ul id="list">
+
+    </ul>
+    <script>
+        var list = document.querySelector("#list")
+        save();
+        display();
+        function display()
+        {
+            var students = localStorage['Monocept.students'];
+            var parsedStudents = JSON.parse(students);
+            parsedStudents.forEach((s) =>
+            {
+                list.innerHTML += `<li>( Id :  ${s.id}           Name :  ${s.name}    )</li>`;
+                console.log("Id : " + s.id + "   Name : " + s.name);
+            });
+        }
+        function save()
+        {
+            var students = []
+            students.push({ id: 1, name: 'Subh' })
+            students.push({ id: 2, name: 'Ekta' })
+            students.push({ id: 3, name: 'Vikrant' })
+            students.push({ id: 4, name: 'Gautam' })
+            students.push({ id: 5, name: 'Ravi' })
+            console.log(students)
+            localStorage['Monocept.students'] = JSON.stringify(students);
+        }
+        /*
+        stringificationAndParse()
+        stringificationAndParse2()
+        function stringificationAndParse()
+        {
+            var obj = { id: 101, location: 'Mumbai' };
+            console.log(typeof obj);
+            console.log(obj.toString())
+            console.log(JSON.stringify(obj));
+            console.log(typeof (JSON.stringify(obj)));
+            var obj2 = JSON.parse(JSON.stringify(obj))
+            console.log(obj2.id)
+            console.log(obj2.location)
+        }
+        function stringificationAndParse2()
+        {
+            var obj = [{ id: 101, location: 'Mumbai' }, { id: 102, location: 'Hydeeabad' }];
+            console.log(typeof obj);
+            console.log(obj.toString())
+            console.log(JSON.stringify(obj));
+            console.log(typeof (JSON.stringify(obj)));
+            var obj2 = JSON.parse(JSON.stringify(obj))
+            obj2.forEach(o =>
+            {
+                console.log(o.id)
+                console.log(o.location)
+            });
+        }*/
+
+    </script>
+</body>
+
+</html>

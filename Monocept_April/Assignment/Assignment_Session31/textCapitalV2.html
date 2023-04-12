@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Text Capitalize Version 2</h1>
+    <div>
+        <label>Text : </label>
+        <input type="text" class="text" oninput="capitalName()"><br>
+
+        <p>
+            Color :
+            <select id="color" onchange="updateColor(event)">
+                <option value="white">Select</option>
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+            </select>
+        </p>
+        <p>
+            bgColor :
+            <select id="bgColor" onchange="updateBgColor(event)">
+                <option value="white">Select</option>
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+            </select>
+        </p><br>
+
+        <span id="capitalName"></span>
+    </div>
+
+    <script>
+        var capitalText = document.querySelector("#capitalName");
+        function capitalName()
+        {
+            var name = document.querySelector(".text").value;
+            capitalText.innerHTML = name.toUpperCase();
+        }
+        function updateColor(e)
+        {
+            capitalText.style.color = e.target.value;
+        }
+        function updateBgColor(e)
+        {
+            capitalText.style.backgroundColor = e.target.value;
+        }
+    </script>
+</body>
+
+</html>

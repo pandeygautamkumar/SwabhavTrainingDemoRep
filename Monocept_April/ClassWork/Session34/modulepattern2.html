@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Module Pattern Version 2</h1>
+
+    <script>
+
+        var DataService = function ()
+        {
+            var serviceObj = {};
+            console.log("Module Loaded Once.");
+            function fnCommon()
+            {
+                console.log("Tasks is Done.");
+            }
+            serviceObj.doTask1 = function ()
+            {
+                console.log("Doing Task 1");
+                fnCommon();
+            }
+            serviceObj.doTask2 = function ()
+            {
+                console.log("Doing Task 2");
+                fnCommon();
+            }
+            serviceObj.getData = function ()
+            {
+                return Math.random() * 10;
+            }
+            return serviceObj;
+        }();
+        console.log(DataService[0])
+        console.log(typeof DataService);
+        DataService.doTask1();
+        DataService.doTask2();
+        console.log(DataService.getData())
+    </script>
+</body>
+
+</html>

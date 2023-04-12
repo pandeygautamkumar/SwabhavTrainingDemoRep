@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Todos List</h1>
+    <div>
+        <label for="">Enter ToDo Item : </label>
+        <input type="text" id="item"><br><br>
+        <input type="button" id="addBtn" value="Add"><br><br>
+
+        <div id="todoList"></div>
+    </div>
+
+    <script>
+        var addBtn = document.querySelector("#addBtn");
+        var item = document.querySelector("#item");
+        var items = []
+        addBtn.addEventListener("click", function ()
+        {
+            items.push({ Name: item.value });
+            console.log(items);
+            item.value = "";
+            displayTodoList(items.length);
+        })
+
+        function displayTodoList(listCount)
+        {
+            var todoList = document.querySelector("#todoList")
+            var alltodoList = "";
+            for (var i = 1; i <= listCount; i++)
+            {
+                alltodoList += `<span">${i} : ${items[i - 1].Name}</span> <br>`
+            }
+            todoList.innerHTML = alltodoList;
+        }
+    </script>
+</body>
+
+</html>

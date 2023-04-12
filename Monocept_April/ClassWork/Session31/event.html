@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Event Page</h1>
+    <input type="button" id="btnClickMe" value="Click Me">
+
+    <script>
+        var btn = document.querySelector("#btnClickMe");
+        console.log(btn);
+        console.log(typeof btn)
+        console.log(btn.value)
+        //btn.value = "Foo";
+        btn.addEventListener("click", fnGodListener);
+        btn.addEventListener("click", fnDevilListener);
+        function fnGodListener()
+        {
+            console.log(arguments);
+            console.log("God is Listening........");
+        }
+        function fnDevilListener(e)
+        {
+            console.log(e);
+            console.log(e.target);
+            e.target.value = "Manipulataed by Devil";
+            console.log("devil is Listening........");
+        }
+        function f1()
+        {
+            console.log(arguments);
+        }
+        f1(100, 200);
+    </script>
+</body>
+
+</html>

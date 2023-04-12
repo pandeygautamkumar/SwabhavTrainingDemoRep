@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>SessionStorage</h1>
+    <ul id="list"></ul>
+
+    <script>
+        var list = document.querySelector("#list")
+        //save();
+        display();
+        function display()
+        {
+            var students = sessionStorage['Monocept.students'];
+            var parsedStudents = JSON.parse(students);
+            parsedStudents.forEach((s) =>
+            {
+                list.innerHTML += `<li>( Id :  ${s.id}           Name :  ${s.name}    )</li>`;
+                console.log("Id : " + s.id + "   Name : " + s.name);
+            });
+        }
+        function save()
+        {
+            var students = []
+            students.push({ id: 1, name: 'Subh' })
+            students.push({ id: 2, name: 'Ekta' })
+            students.push({ id: 3, name: 'Vikrant' })
+            students.push({ id: 4, name: 'Gautam' })
+            students.push({ id: 5, name: 'Ravi' })
+            console.log(students)
+            sessionStorage['Monocept.students'] = JSON.stringify(students);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ColorPicker</h1>
+    <p>
+        Select Color :
+        <select id="colorPicker" onchange="updateColor(event)">
+            <option value="white">---Select---</option>
+            <option value="#eb7734">Red</option>
+            <option value="#34b4eb">Blue</option>
+            <option value="#baeb34">Green</option>
+        </select>
+    </p>
+
+    <script>
+        var colorPicker = document.getElementById("colorPicker");
+        console.log(colorPicker)
+        console.log(colorPicker.value)
+        function updateColor(e)
+        {
+            console.log("Inside Event Handler")
+            console.log(e.target.value)
+            document.body.style.backgroundColor = e.target.value;
+        }
+    </script>
+</body>
+
+</html>

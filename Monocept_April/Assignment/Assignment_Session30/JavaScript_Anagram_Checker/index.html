@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Anagram Checker</title>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1>Anagram Checker</h1>
+            <div class="form-group">
+                <label for="">First String</label><br>
+                <input type="text" placeholder="Enter First String" class="first">
+            </div>
+            <div class="form-group">
+                <label for="">Second String</label><br>
+                <input type="text" placeholder="Enter Second String" class="second">
+            </div>
+            <div class="form-group">
+                <button onclick="checkIsAnagram(); return false;" class="btn">CheckAnagram</button>
+            </div>
+            <div class="form-group">
+                <h1 id="result"> </h1>
+            </div>
+        </form>
+    </div>
+
+    <script src="anagram.js"></script>
+</body>
+
+</html>

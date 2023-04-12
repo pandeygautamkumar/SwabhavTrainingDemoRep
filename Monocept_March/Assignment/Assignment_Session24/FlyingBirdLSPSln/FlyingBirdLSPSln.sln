@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingBirdLSPViolationApp", "FlyingBirdLSPViolationApp\FlyingBirdLSPViolationApp.csproj", "{464B644B-AD2C-41A4-A52E-2A252155980B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingBirdLSPSolutionApp", "FlyingBirdLSPSolutionApp\FlyingBirdLSPSolutionApp.csproj", "{139F269A-56F2-4D5B-8AF9-E13ABAA96CA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{464B644B-AD2C-41A4-A52E-2A252155980B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{464B644B-AD2C-41A4-A52E-2A252155980B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{464B644B-AD2C-41A4-A52E-2A252155980B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{464B644B-AD2C-41A4-A52E-2A252155980B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{139F269A-56F2-4D5B-8AF9-E13ABAA96CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{139F269A-56F2-4D5B-8AF9-E13ABAA96CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{139F269A-56F2-4D5B-8AF9-E13ABAA96CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{139F269A-56F2-4D5B-8AF9-E13ABAA96CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29A6BE67-144A-45C8-97B6-333F689EFD3C}
+	EndGlobalSection
+EndGlobal

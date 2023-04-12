@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="text-align:center;">Name Paging</h1>
+
+    <div id="" style="border: 1px solid silver;text-align: center;width: 50%;margin-left: 250px;">
+        <h3 id="result"></h3>
+        <button id="back" onclick="back()">Prev</button>&nbsp;
+        <button id="next" onclick="next()">Next</button><br><br>
+    </div>
+
+    <script>
+        var backButton = document.querySelector("#back")
+        var nextButton = document.querySelector("#next")
+        var result = document.querySelector("#result")
+        var i = 1;
+
+
+        var names = ["Ravi Kumar", "Vikrant", "Subh", "Ekta", "Manjunath", "Anikant", "Gautam Kumar Pandey", "Ram", "Sita", "Gita", "Gaurav"]
+        names.sort();
+
+        backButton.disabled = true;
+        result.innerHTML = `(${i}/${names.length})&nbsp;&nbsp;&nbsp;&nbsp;${names[i - 1]}`
+
+        function next()
+        {
+            i++
+            if (i == names.length)
+            {
+                nextButton.disabled = true;
+            }
+            backButton.disabled = false;
+            result.innerHTML = `(${i}/${names.length})&nbsp;&nbsp;&nbsp;&nbsp;${names[i - 1]}`
+        }
+        function back()
+        {
+            i--;
+            if (i == 1)
+            {
+                backButton.disabled = true;
+            }
+            nextButton.disabled = false;
+            result.innerHTML = `(${i}/${names.length})&nbsp;&nbsp;&nbsp;&nbsp;${names[i - 1]}`
+        }
+    </script>
+</body>
+
+</html>
