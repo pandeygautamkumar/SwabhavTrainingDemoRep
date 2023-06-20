@@ -1,0 +1,56 @@
+﻿@using EmployeeCoreCRUDApp.ViewModel
+@model EmployeeEditVM
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style>
+    .validation-summary-errors {
+        color: red
+    }
+
+    h2 {
+        text-align: center;
+        color: forestgreen;
+    }
+
+    p {
+        font-weight: bold;
+        height: 20px;
+    }
+
+    input {
+        margin-left: 40%;
+    }
+</style>
+<h2>Edit Employee Details</h2>
+<hr />
+<div class="container">
+    <form asp-controller="Employee" asp-action="Edit" method="post" class="mt-3">
+
+        <div class="form-group row">
+            <label asp-for="EmployeeId" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input asp-for="EmployeeId" class="form-control" placeholder="EmployeeID">
+            </div>
+        </div><br />
+
+        <div class="form-group row">
+            <label asp-for="EmployeeName" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input asp-for="EmployeeName" class="form-control" placeholder="EmployeeName">
+            </div>
+        </div><br />
+
+        <div class="form-group row">
+            <label asp-for="Salary" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input asp-for="Salary" class="form-control" placeholder="EmployeeSalary">
+            </div>
+        </div><br />
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Edit Details</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,196 @@
+SELECT * FROM EMP
+SELECT * FROM DEPT
+
+-- ALL EMPLOYEE IN SAME DEPARTMENT OF SMITH
+SELECT * FROM EMP WHERE DEPTNO IN
+(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH')
+
+-- ALL EMPLOYEE HAVING SAME DESIGNATION OF SCOTT
+SELECT * FROM EMP WHERE JOB IN
+(SELECT JOB FROM EMP WHERE ENAME='SCOTT')
+
+-- ALL EMPLOYEE HAVING SAME SALARY OF SCOTT
+SELECT * FROM EMP WHERE SAL IN
+(SELECT SAL FROM EMP WHERE ENAME='SCOTT')
+
+-- DISPLAY ALL EMPNAME AND DEPTNAME
+SELECT DEPT.DNAME,EMP.ENAME FROM EMP INNER JOIN
+DEPT ON DEPT.DEPTNO=EMP.DEPTNO;
+
+SELECT DEPT.DNAME,EMP.ENAME FROM DEPT INNER JOIN
+EMP ON DEPT.DEPTNO=EMP.DEPTNO;
+
+-- DISPLAY ALL DEPT NAME AND ENAME IF ANY
+SELECT DEPT.DNAME,EMP.ENAME FROM EMP RIGHT JOIN 
+DEPT ON DEPT.DEPTNO=EMP.DEPTNO ORDER BY EMP.ENAME
+
+-- DISPLAY DEPARTMENT WHERE NO EMPLOYEE
+SELECT DEPT.DNAME,EMP.ENAME FROM EMP RIGHT JOIN 
+DEPT ON DEPT.DEPTNO=EMP.DEPTNO WHERE EMP.ENAME IS NULL ORDER BY DEPT.DNAME
+
+-- DISPLAY ALL EMPLOYEE AND THERE BOSS
+SELECT X.ENAME,Y.ENAME AS BOSS FROM EMP AS X INNER JOIN EMP AS Y ON X.MGR=Y.EMPNO
+
+SELECT X.ENAME,Y.ENAME AS BOSS FROM EMP AS X LEFT JOIN EMP AS Y ON X.MGR=Y.EMPNO
+
+-- DISPLAY ALL EMPLOYEE AND THERE BOSS AND DEPARTMENTNAME
+
+SELECT X.ENAME,Y.ENAME AS BOSS ,DEPT.DNAME FROM EMP AS X LEFT JOIN EMP AS Y ON X.MGR=Y.EMPNO
+INNER JOIN DEPT ON X.DEPTNO=DEPT.DEPTNO
+SELECT * FROM EMP
+SELECT * FROM DEPT
+
+=========================================================================================================================
+
+CREATE TABLE REGIONS
+( region_id      int 
+CONSTRAINT  region_id_nn NOT NULL 
+, region_name    VARCHAR(25) 
+);
+
+SELECT * FROM REGIONS
+
+
+ALTER TABLE REGIONS
+ADD CONSTRAINT reg_id_pk
+                 PRIMARY KEY (region_id)
+     ;
+     
+     
+     CREATE TABLE COUNTRIES 
+    ( COUNTRY_ID      CHAR(2) 
+       CONSTRAINT  COUNTRY_ID_NN NOT NULL 
+    , COUNTRY_NAME    VARCHAR(40) 
+    , REGION_ID       int 
+    , CONSTRAINT     COUNTRY_C_ID_PK 
+                     PRIMARY KEY (COUNTRY_ID) 
+    ) 
+    
+    
+    
+    ALTER TABLE COUNTRIES
+ADD  CONSTRAINT COUNTR_REG_FK
+                 FOREIGN KEY (REGION_ID)
+                  REFERENCES REGIONS(REGION_ID) 
+ 
+ 
+ 
+ 
+ CREATE TABLE LOCATIONS
+    ( LOCATION_ID    int not null
+    , STREET_ADDRESS VARCHAR(40)
+    , POSTAL_CODE    VARCHAR(12)
+    , CITY       VARCHAR(30)
+        CONSTRAINT     LOC_CITY_NN  NOT NULL
+    , STATE_PROVINCE VARCHAR(25)
+    , COUNTRY_ID     CHAR(2)
+    ) ;
+    
+    
+    
+    
+    ALTER TABLE LOCATIONS
+ADD  CONSTRAINT LOC_ID_PK
+                 PRIMARY KEY (LOCATION_ID)
+    , CONSTRAINT LOC_C_ID_FK
+                 FOREIGN KEY (COUNTRY_ID)
+                  REFERENCES COUNTRIES(COUNTRY_ID) 
+                  
+                  
+                  
+                  
+                  
+                  
+INSERT INTO regions VALUES( 1, 'Europe');
+INSERT INTO regions VALUES( 2, 'Americas');
+INSERT INTO regions VALUES( 3, 'Asia');
+INSERT INTO regions VALUES( 4, 'Middle East and Africa');
+
+
+
+===============
+
+INSERT INTO countries VALUES( 'IT', 'Italy', 1);
+INSERT INTO countries VALUES( 'JP', 'Japan', 3);
+INSERT INTO countries VALUES( 'US', 'United States of America', 2);
+INSERT INTO countries VALUES( 'CA', 'Canada', 2);
+INSERT INTO countries VALUES( 'CN', 'China', 3);
+INSERT INTO countries VALUES( 'IN', 'India', 3);
+INSERT INTO countries VALUES( 'AU', 'Australia', 3);
+INSERT INTO countries VALUES( 'ZW', 'Zimbabwe',4);
+
+
+INSERT INTO countries VALUES( 'SG', 'Singapore', 3);
+INSERT INTO countries VALUES( 'UK', 'United Kingdom', 1);
+INSERT INTO countries VALUES( 'FR', 'France', 1);
+INSERT INTO countries VALUES( 'DE', 'Germany', 1);
+INSERT INTO countries VALUES( 'ZM', 'Zambia', 4);
+INSERT INTO countries VALUES( 'EG', 'Egypt', 4);
+INSERT INTO countries VALUES( 'BR', 'Brazil', 2);
+INSERT INTO countries VALUES( 'CH', 'Switzerland', 1);
+
+
+INSERT INTO countries VALUES( 'NL', 'Netherlands', 1);
+INSERT INTO countries VALUES( 'MX', 'Mexico', 2);
+INSERT INTO countries VALUES( 'KW', 'Kuwait', 4);
+INSERT INTO countries VALUES( 'IL', 'Israel', 4);
+INSERT INTO countries VALUES( 'DK', 'Denmark', 1);
+INSERT INTO countries VALUES( 'HK', 'HongKong', 3);
+INSERT INTO countries VALUES( 'NG', 'Nigeria', 4);
+INSERT INTO countries VALUES( 'AR', 'Argentina', 2);
+INSERT INTO countries VALUES( 'BE', 'Belgium', 1);
+
+INSERT INTO locations VALUES( 1000, '1297 Via Cola di Rie', '00989', 'Roma', NULL, 'IT');
+INSERT INTO locations VALUES( 1100, '93091 Calle della Testa', '10934', 'Venice', NULL, 'IT');
+INSERT INTO locations VALUES( 1200, '2017 Shinjuku-ku', '1689', 'Tokyo', 'Tokyo Prefecture', 'JP');
+INSERT INTO locations VALUES( 1300, '9450 Kamiya-cho', '6823', 'Hiroshima', NULL, 'JP');
+INSERT INTO locations VALUES( 1400, '2014 Jabberwocky Rd', '26192', 'Southlake', 'Texas', 'US');
+INSERT INTO locations VALUES( 1500, '2011 Interiors Blvd', '99236', 'South San Francisco', 'California', 'US');
+INSERT INTO locations VALUES( 1600, '2007 Zagora St', '50090', 'South Brunswick', 'New Jersey', 'US');
+INSERT INTO locations VALUES( 1700, '2004 Charade Rd', '98199', 'Seattle', 'Washington', 'US');
+INSERT INTO locations VALUES( 1800, '147 Spadina Ave', 'M5V 2L7', 'Toronto', 'Ontario', 'CA');
+INSERT INTO locations VALUES( 1900, '6092 Boxwood St', 'YSW 9T2', 'Whitehorse', 'Yukon', 'CA');
+
+========================================================================================================
+
+
+SELECT * FROM EMP
+SELECT * FROM DEPT
+SELECT * FROM REGIONS
+SELECT * FROM COUNTRIES
+SELECT * FROM LOCATIONS
+
+-- Display location name,city name,country name,regition name , ORDER by region name
+SELECT LOCATIONS.STREET_ADDRESS,LOCATIONS.CITY,COUNTRIES.COUNTRY_NAME,REGIONS.REGION_NAME FROM LOCATIONS
+INNER JOIN COUNTRIES ON LOCATIONS.COUNTRY_ID=COUNTRIES.COUNTRY_ID
+INNER JOIN REGIONS ON REGIONS.REGION_ID=COUNTRIES.REGION_ID ORDER BY REGIONS.REGION_NAME
+
+-- Display Country where there are no locations availbale in location table
+
+SELECT LOCATIONS.STREET_ADDRESS,COUNTRIES.COUNTRY_NAME FROM COUNTRIES
+LEFT JOIN LOCATIONS ON LOCATIONS.COUNTRY_ID=COUNTRIES.COUNTRY_ID 
+WHERE LOCATIONS.STREET_ADDRESS IS NULL
+
+-- Display the regions where there are no countries available in country table
+
+SELECT REGIONS.REGION_NAME,COUNTRIES.COUNTRY_NAME FROM REGIONS 
+RIGHT JOIN COUNTRIES ON REGIONS.REGION_ID=COUNTRIES.REGION_ID
+WHERE COUNTRIES.COUNTRY_NAME IS NULL
+============================================================================================================
+
+CREATE TABLE DUMMY(ID INT)
+SELECT * FROM DUMMY
+INSERT INTO DUMMY VALUES(10)
+
+BEGIN TRANSACTION TX2
+	INSERT INTO DUMMY VALUES(30)
+	SELECT * FROM DUMMY
+	COMMIT
+SELECT * FROM DUMMY
+
+BEGIN TRANSACTION TX1
+	INSERT INTO DUMMY VALUES(40)
+	SELECT * FROM DUMMY
+	ROLLBACK
+	
+SELECT * FROM DUMMY

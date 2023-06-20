@@ -1,0 +1,31 @@
+﻿@using EmployeCRUDApp.ViewModel
+@model EmployeeIndexVM
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<h1>@Model.Title</h1>
+<p>
+    <h3>Total Employee is : @Model.Count</h3>
+    <p>
+        @Html.ActionLink("Add Employee", "Add", null, new { @class = "btn btn-success btn-xs" })
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var emp in Model.Employees)
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.Name</td>
+                    <td>@emp.Salary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>

@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <nav>
+        @Html.ActionLink("Index", "Index") |
+        @Html.ActionLink("Career", "Carrer") |
+        @Html.ActionLink("AboutUs", "AboutUs") |
+        @Html.ActionLink("Services", "Services") |
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy;Gautam Kumar Pandey || @DateTime.Now.Year</p>
+    </footer>
+</body>
+</html>

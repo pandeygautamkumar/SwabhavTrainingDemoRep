@@ -1,0 +1,11 @@
+﻿<h1>Index Page of Summary Controller Page</h1>
+
+<p>
+    <h3>@Session.SessionID</h3>
+    <h3>Last Value of Session is : @((int) Session["Counter"]-1)</h3>
+    <h3>Last Value of Appliction is : @Context.Application["Counter"]</h3>
+</p>
+<p>
+    @Html.ActionLink("back to session", "Index", "Session");
+</p>
+

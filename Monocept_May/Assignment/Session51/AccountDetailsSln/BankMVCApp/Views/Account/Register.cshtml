@@ -1,0 +1,60 @@
+﻿@using BankMVCApp.ViewModel
+@model RegisterVM
+
+<style>
+    .validation-summary-errors {
+        color: red
+    }
+
+    h2 {
+        text-align: center;
+        color: forestgreen;
+    }
+
+    p {
+        font-weight: bold;
+        height: 20px;
+    }
+
+    input {
+        margin-left: 40%;
+    }
+</style>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>Customer Registration</h2>
+<hr />
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="container" style="display:flex;margin-left:30%">
+            <div>
+                <p>Id : </p>
+                <p>Name : </p>
+                <p>Password : </p>
+                <p>Balance : </p>
+            </div>
+
+            <div style="margin-left:15px;">
+                <p>
+                    @Html.TextBoxFor(m => m.Id)
+                </p>
+                <p>
+                    @Html.TextBoxFor(m => m.Name)
+                </p>
+                <p>
+                    @Html.PasswordFor(m => m.Password)
+                </p>
+                <p>
+                    @Html.TextBoxFor(m => m.Balance)
+                </p>
+            </div>
+        </div><br />
+        <input type="submit" value="SignUp" style="margin-left:40%;" class="btn btn-success" />
+        @Html.ActionLink("Login", "Login", null, new { @class = "btn btn-success" })
+        <p>
+            @Html.ValidationSummary()
+        </p>
+    }
+</div>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Text Capitalize</h1>
+    <div>
+        Enter Name : <input type="text" class="text"><br><br>
+        <span id="capitalName"></span>
+    </div>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $(document).ready(main);
+
+        function main()
+        {
+            $('.text').on('input', function (e)
+            {
+                $('#capitalName').text($(e.target).val().toUpperCase())
+            })
+        }
+    </script>
+</body>
+
+</html>

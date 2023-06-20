@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Async Await 2</h1>
+    <button onclick="getDataHandler()">GetData</button>
+    <div>
+        <img id="firstFlag" />
+    </div>
+    <div id="result"></div>
+    <script>
+        function getDataAsync()  // Promise<Object>
+        {
+            return new Promise(function (resolve, reject)
+            {
+                var xhr = new XMLHttpRequest()
+                xhr.addEventListener("load", function ()
+                {
+                    var resp = JSON.parse(this.responseText)
+                    resolve(resp)
+                });
+                xhr.open("GET", "https://restcountries.com/v3.1/all?fields=name,flags")
+                xhr.send();
+            })
+
+        }
+        async function getDataHandler()
+        {
+            var countries = await getDataAsync();
+            console.log(countries)
+            /*
+                        var mappedContries = countries.map(c =>
+                        {
+                            var obj = {}
+                            obj.flag = c.flags.png;
+                            obj.name = c.name.common
+                            return obj;
+                        })
+                        var india = mappedContries.find(c => c.name.toUpperCase() == "INDIA")
+                        console.log("Inida", india);
+                        document.getElementById("firstFlag").src = india.flag;
+                        */
+
+            // document.getElementById("firstFlag").src = countries[0].flags.png;
+
+            var allFlag = `<h1>All Country Image</h1>`;
+            for (var i = 0; i < countries.length; i++)
+            {
+                allFlag += `<h3>${countries[i].name.common}</h3><img src="${countries[i].flags.png}"/><br><br>`
+            }
+            document.getElementById('result').innerHTML = allFlag;
+        } 
+    </script>
+</body>
+
+</html>

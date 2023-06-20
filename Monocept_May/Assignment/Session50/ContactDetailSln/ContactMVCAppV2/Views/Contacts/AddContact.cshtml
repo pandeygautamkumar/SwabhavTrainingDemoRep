@@ -1,0 +1,63 @@
+﻿@using ContactMVCAppV2.ViewModel
+@model AddVM
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+<style>
+    .validation-summary-errors {
+        color: red
+    }
+
+    h1 {
+        text-align: center;
+        color: forestgreen;
+    }
+
+    p {
+        font-weight: bold;
+        height: 20px;
+    }
+
+    input {
+        margin-left: 40%;
+    }
+</style>
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<h1>Add Details of Contact</h1>
+<hr />
+@using (Html.BeginForm())
+{
+
+    <div class="container" style="display:flex;margin-left:30%">
+        <div>
+            <p>Id is : </p>
+            <p>Name is : </p>
+            <p>Mobile Number is : </p>
+            <p>Address is : </p>
+        </div>
+
+        <div style="margin-left:15px;">
+            <p>
+                @Html.TextBoxFor(m => m.Id)
+            </p>
+            <p>
+                @Html.TextBoxFor(m => m.Name)
+            </p>
+            <p>
+                @Html.TextBoxFor(m => m.MobileNumber)
+            </p>
+            <p>
+                @Html.TextBoxFor(m => m.Address)
+            </p>
+        </div>
+    </div>
+    <br />
+    <div style="margin-left:25%">
+        <input type="submit" value="Add" class="btn btn-success" />
+    </div>
+    <p>
+        @Html.ValidationSummary()
+    </p>
+}

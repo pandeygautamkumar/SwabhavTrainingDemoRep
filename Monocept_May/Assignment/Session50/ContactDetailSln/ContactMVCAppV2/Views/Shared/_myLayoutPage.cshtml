@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="navbar-collapse collapse" style="background-color:darkgrey;color:white;">
+        <ul class="nav navbar-nav">
+            <li>
+                @Html.ActionLink("Home", "GetContacts")
+            </li>
+            <li>
+                @Html.ActionLink("Add Contacts", "AddContact")
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    GetByID
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach (var contact in (IEnumerable<ContactDALLib.Model.Contact>)Session["users"])
+                    {
+                        @Html.ActionLink($"Id is : {contact.Id}", "GetContact", new { id = contact.Id })
+                        <br />
+                    }
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div style="margin:20px;">
+        <nav>
+            <p>
+                @if (Session["username"] == null)
+                {
+                    <span>Guest</span>
+                    @Html.ActionLink("Login", "Index", "Login");
+                }
+                else
+                {
+                    <span>Welcome, @Session["username"]</span>
+                    @Html.ActionLink("Logout", "LogOut", "Contacts")
+                }
+            </p>
+        </nav>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

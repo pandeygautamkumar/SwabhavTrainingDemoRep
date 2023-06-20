@@ -1,0 +1,21 @@
+<div>
+    <h1>Displaying Table Data</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let product of products;index as i">
+                <th scope="row">{{i}}</th>
+                <th>{{product.id}}</th>
+                <th>{{product.name}}</th>
+                <th>{{product.price}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

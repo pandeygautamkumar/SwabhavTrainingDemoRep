@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="container">
+    <!-- <sw-login></sw-login> -->
+    <sw-star [rating]="3.5" (ratingClicked)="ratingClickHandler($event)"></sw-star>
+    <sw-star [rating]="2.5" (ratingClicked)="ratingClickHandler($event)"></sw-star>
+    <sw-star [rating]="4.5" (ratingClicked)="ratingClickHandler($event)"></sw-star>
+    <h1>{{currentRatingValue}}</h1>
+</div>
+
+<!-- <sw-numberapi></sw-numberapi> -->
+
+<!-- <app-product></app-product> -->
+<!-- <app-towaybind></app-towaybind> -->
+
+<!-- <h2>{{"Welcome Component" | lowercase}}</h2>
+<h2>{{"Welcome Component" | snake}}</h2>
+<pro-eventpropbind></pro-eventpropbind>
+<app-wish></app-wish>
+
+ <h2>
+    {{message}}
+</h2>
+
+<ul>
+    <li *ngFor="let c of customers;index as i" style="color: {{getColor(i)}};">{{i+1}} {{c.firstName}} {{c.lastName}}
+    </li>
+</ul> -->

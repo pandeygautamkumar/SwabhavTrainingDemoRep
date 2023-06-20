@@ -1,0 +1,11 @@
+﻿<h1>Index Page of Session Controller Page</h1>
+
+<p>
+    <h3>@Session.SessionID</h3>
+    <h3>Old Value is : @((int) Session["Counter"]-1)</h3>
+    <h3>New Value is : @Session["Counter"]</h3>
+</p>
+<p>
+    @Html.ActionLink("Go to Summary", "Index", "Summary");
+</p>
+

@@ -1,0 +1,66 @@
+﻿@using ContactDALLib.Model
+@model List<Contact>
+@{ 
+    Layout = "~/Views/Shared/_myLayoutPage.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+<style>
+    .table-center {
+        margin: 0 auto;
+        float: none;
+    }
+
+    h1 {
+        color: forestgreen;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    td {
+        color: darkblue;
+    }
+    li{
+       color:white;
+    }
+</style>
+<h1>Get Detalis of All Contacts</h1>
+<hr />
+<br />
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile_Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model)
+            {
+                <tr>
+                    <td>@contact.Id</td>
+                    <td>@contact.Name</td>
+                    <td>@contact.MobileNumber</td>
+                    <td>@contact.Address</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id =contact.Id }, new { @class = "btn btn-info btn-xs" })</td>
+                    <td>@Html.ActionLink("X", "Delete", new { id = contact.Id }, new { @class = "btn btn-danger btn-xs", onclick = "fnArYouSure()" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    function fnArYouSure() {
+        return confirm("Are You Sure for Delete ?!!")
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+

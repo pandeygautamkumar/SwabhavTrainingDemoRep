@@ -1,0 +1,12 @@
+﻿<h1>Index Page of Application Controller Page</h1>
+
+<p>
+    @Html.ActionLink("go to summary", "Index", "Summary");
+</p>
+
+<p>
+    <h3>@Session.SessionID</h3>
+    <h3>Old Value is : @((int) Context.Application["Counter"]-1)</h3>
+    <h3>New Value is : @Context.Application["Counter"]</h3>
+</p>
+

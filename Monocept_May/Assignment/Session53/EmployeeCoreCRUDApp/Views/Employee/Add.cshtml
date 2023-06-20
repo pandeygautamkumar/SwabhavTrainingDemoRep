@@ -1,0 +1,55 @@
+﻿@using EmployeeCoreCRUDApp.ViewModel
+@model EmployeeVM
+
+<style>
+    .validation-summary-errors {
+        color: red
+    }
+
+    h2 {
+        text-align: center;
+        color: forestgreen;
+    }
+
+    label {
+        font-weight: bold;
+        color: black;
+    }
+</style>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>Add Employee Details</h2>
+<hr />
+<div class="container">
+    <form asp-controller="Employee" asp-action="Add" method="post" class="mt-3">
+
+        <div class="form-group row">
+            <label asp-for="EmployeeID" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input asp-for="EmployeeID" class="form-control" placeholder="EmployeeID">
+            </div>
+        </div><br />
+
+        <div class="form-group row">
+            <label asp-for="EmployeeName" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input asp-for="EmployeeName" class="form-control" placeholder="EmployeeName">
+            </div>
+        </div><br />
+
+        <div class="form-group row">
+            <label asp-for="EmployeeSalary" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-5">
+                <input asp-for="EmployeeSalary" class="form-control" placeholder="EmployeeSalary">
+            </div>
+        </div><br />
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Add Details</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="loadCountryData()">GetData</button>
+    <div>
+        <img id="firstFlag" />
+    </div>
+    <div id="result"></div>
+    <script>
+        function display()
+        {
+            //console.log("this is : ", this)
+            console.log(typeof this.responseText)
+            var jsonRespon = JSON.parse(this.responseText);
+            console.log(jsonRespon[0].flags.png)
+            document.getElementById("firstFlag").src = jsonRespon[0].flags.png;
+
+            var allFlag = `<h1>All Country Image</h1>`;
+            for (var i = 0; i < jsonRespon.length; i++)
+            {
+                allFlag += `<img src="${jsonRespon[i].flags.png}"/><br>`
+            }
+            document.getElementById('result').innerHTML = allFlag;
+        }
+        function loadCountryData()
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", display);
+            xhr.open("GET", "https://restcountries.com/v3.1/all?fields=name,flags")
+            xhr.send();
+
+            console.log("End of Click")
+        }
+    </script>
+</body>
+
+</html>

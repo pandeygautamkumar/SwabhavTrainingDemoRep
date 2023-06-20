@@ -1,0 +1,12 @@
+<div>
+    <h1>Greet Component</h1>
+    <h2>Today is {{today | date:"medium"}}</h2>
+    <h3>{{22/7 | number:".1-3"}}</h3>
+    Enter Your Name : <input #txtUser type="text" />
+    <input type="button" value="wish" (click)="wishHandler(txtUser.value)">
+    <br />
+    <hr />
+    <h1>{{message}}</h1>
+    <h2>{{message | snake}}</h2>
+    <h2>{{message | snake:"U"}}</h2>
+</div>

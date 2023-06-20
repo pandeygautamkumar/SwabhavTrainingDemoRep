@@ -1,0 +1,52 @@
+﻿@using EmployeCRUDApp.ViewModel
+@model LoginVM
+
+<style>
+    .validation-summary-errors {
+        color: red
+    }
+
+    h2 {
+        text-align: center;
+        color: forestgreen;
+    }
+
+    p {
+        font-weight: bold;
+        height: 20px;
+    }
+
+    input {
+        margin-left: 40%;
+    }
+</style>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>User Login</h2>
+<hr />
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="container" style="display:flex;margin-left:30%">
+            <div>
+                <p>UserName : </p>
+                <p>UserPassword : </p>
+            </div>
+
+            <div style="margin-left:15px;">
+                <p>
+                    @Html.TextBoxFor(m => m.Name)
+                </p>
+                <p>
+                    @Html.PasswordFor(m => m.Password)
+                </p>
+            </div>
+        </div>
+
+        <br />
+        <input type="submit" value="Login" style="margin-left:40%;" class="btn btn-success" />
+        <p>
+            @Html.ValidationSummary()
+        </p>
+    }
+</div>
+

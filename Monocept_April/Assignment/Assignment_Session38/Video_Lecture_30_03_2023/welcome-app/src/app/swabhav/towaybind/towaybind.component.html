@@ -1,0 +1,25 @@
+<h1>Model to View</h1>
+<p>First Name is : {{firstName}}</p>
+<p>last Name is : {{lastName}} </p>
+<p>City is : {{city}}</p>
+<p>Gender is : {{gender}}</p>
+<hr />
+<h1>View to Model</h1>
+<label for="">First name : </label>
+<input type="text" (ngModelChange)="updateFirstNameHandler($event)" [ngModel]="firstName" />
+<br><br>
+<Label for="">Last Name : </Label>
+<input type="text" [(ngModel)]="lastName" />
+<br><br>
+<label for="">City : </label>
+<select [(ngModel)]="city">
+    <option value="Delhi">Delhi</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Varanasi">Varanasi</option>
+    <option value="Patna">Patna</option>
+</select>
+<br><br>
+<label for="">Gender : </label>
+<input type="radio" name="gender" value="Male" [(ngModel)]="gender">Male
+<input type="radio" name="gender" value="Female" [(ngModel)]="gender">Female
+<input type="radio" name="gender" value="None" [(ngModel)]="gender">None

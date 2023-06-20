@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Constructor Pattern 2</h1>
+    <script>
+        function Customer(id, name)
+        {
+            var _id, _name;
+            if (id > 0)
+            {
+                _id = id;
+            }
+            if (name.length > 0)
+            {
+                _name = name;
+            }
+            this.foo = "bar";
+            this.getDetails = function () // Clousre
+            {
+                return "id : " + _id + "     Name : " + _name;
+            }
+        }
+        var c1 = new Customer(101, "Gautam");
+        console.log(c1)
+        c1.id = 123;
+        console.log(c1)
+        console.log(c1.getDetails())
+    </script>
+</body>
+
+</html>

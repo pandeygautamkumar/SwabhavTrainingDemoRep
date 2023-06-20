@@ -1,0 +1,39 @@
+﻿@using SimpleMvcApp.ViewModels
+
+@model GetStudentCollegeVM
+
+<h1>Displaying College Details</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    @foreach (var college in Model.Colleges)
+    {
+        <tr>
+            <td>@college.Id</td>
+            <td>@college.Name</td>
+        </tr>
+    }
+</table>
+
+<h1>Displaying Student Details</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CGPA</th>
+        </tr>
+    </thead>
+    @foreach (var student in Model.Students)
+    {
+        <tr>
+            <td>@student.Id</td>
+            <td>@student.Name</td>
+            <td>@student.Cgpa</td>
+        </tr>
+    }
+</table>

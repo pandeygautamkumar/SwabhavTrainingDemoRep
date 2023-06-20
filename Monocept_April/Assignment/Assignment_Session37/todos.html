@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js">
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Todos List</h1>
+    <div>
+        <label for="">Enter ToDo Item : </label>
+        <input type="text" id="item"><br><br>
+        <input type="button" id="addBtn" value="Add"><br><br>
+
+        <div id="todoList"></div>
+    </div>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $(document).ready(main);
+
+        function main()
+        {
+            var items = []
+            if (localStorage.getItem('todo_list'))
+            {
+                items = JSON.parse(localStorage.getItem('todo_list'));
+                displayTodoList()
+            }
+            $("#addBtn").click(function ()
+            {
+                var item = $('#item').val()
+                var today = moment();
+
+                var list = {}
+                list["Name"] = item;
+                list["Current_Data"] = today;
+
+                items.push(list)
+                localStorage.setItem('todo_list', JSON.stringify(items));
+                $('#item').val("")
+
+                displayTodoList();
+            });
+            function displayTodoList()
+            {
+                var today = moment();
+
+                var table = `<table border='1'><tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Created_Date</th> 
+                                <th>Created_Ago</th>
+                                </tr>`
+
+                for (var i = 0; i < items.length; i++)
+                {
+                    table +=
+                        `<tr>
+                            <td>${i + 1}</td>
+                            <td>${items[i].Name}</td>
+                            <td>${moment(items[i].Current_Data).format('DD-MM-YYYY')}</td>
+                            <td>${today.diff(moment(items[i].Current_Data), 'days')} Days , ${today.diff(moment(items[i].Current_Data), 'hours')} Hours ago.....</td>
+                        </tr> `
+                }
+                table += `</table >`
+                $('#todoList').html(table)
+            }
+        }
+    </script>
+</body>
+
+</html>

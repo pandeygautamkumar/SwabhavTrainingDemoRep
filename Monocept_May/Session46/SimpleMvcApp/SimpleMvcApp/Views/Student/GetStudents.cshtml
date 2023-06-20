@@ -1,0 +1,22 @@
+﻿@using SimpleMvcApp.Model
+@model List<Student>
+
+
+<h1>Displaying the List of Student</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>CGPA</th>
+        </tr>
+    </thead>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.Id</td>
+            <td>@student.Name</td>
+            <td>@student.Cgpa</td>
+        </tr>
+    }
+</table>

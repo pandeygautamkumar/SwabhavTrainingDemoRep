@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Number Api_1</h1>
+    Enter No : <input type="text" id="txtNumber" value="10">
+    <button onclick="getFactsHandler()">GetFacts</button>
+    <h1 id="display"></h1>
+
+    <script>
+        function getFactsHandler()
+        {
+            var no = document.querySelector("#txtNumber").value
+            console.log(no)
+
+            var promise1 = fetch(`http://numbersapi.com/${no}?json`)
+            var promise2 = promise1.then((resp) =>
+            {
+                console.log(resp)
+                return resp.json();
+            })
+            promise2.then((result) =>
+            {
+                document.querySelector("#display").innerHTML = result.text;
+                console.log(result)
+            })
+            console.log("End of getFactHandler")
+            alert("End")
+        }
+    </script>
+</body>
+
+</html>

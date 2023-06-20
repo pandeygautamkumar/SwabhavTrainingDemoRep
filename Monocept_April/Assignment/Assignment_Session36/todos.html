@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Todos List</h1>
+    <div>
+        <label for="">Enter ToDo Item : </label>
+        <input type="text" id="item"><br><br>
+        <input type="button" id="addBtn" value="Add"><br><br>
+
+        <div id="todoList"></div>
+    </div>
+
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $(document).ready(main);
+
+        function main()
+        {
+            var items = []
+            $("#addBtn").click(function ()
+            {
+                var item = $('#item').val()
+                items.push({ Name: item })
+                $('#item').val("")
+                console.log()
+                displayTodoList(items.length);
+            });
+            function displayTodoList(listCount)
+            {
+                var alltodoList = "";
+                for (var i = 1; i <= listCount; i++)
+                {
+                    alltodoList += `<span">${i} : ${items[i - 1].Name}</span> <br>`
+                }
+                $('#todoList').html(alltodoList)
+            }
+        }
+    </script>
+</body>
+
+</html>

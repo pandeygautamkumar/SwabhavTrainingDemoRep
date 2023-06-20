@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Student Detail</h1>
+    <div style="border: 1px solid silver;width: 75%;margin-left: 110px;">
+        <div style="margin-left: 250px;">
+            <div style="margin: 15px;">
+                <label>Name : </label>
+                <input type="text" id="name">
+            </div>
+            <div style="margin: 15px;">
+                <label>Gender : </label>
+                <input type="radio" name="gender" value="Male">Male
+                <input type="radio" name="gender" value="Female">Female
+                <input type="radio" name="gender" value="Others">Others
+            </div>
+            <div style="margin: 15px;">
+                <label>Branch : </label>
+                <select id="branch">
+                    <option value="CSE">CSE</option>
+                    <option value="MCA">MCA</option>
+                    <option value="ECE">ECE</option>
+                    <option value="ME">ME</option>
+                    <option value="CE">CE</option>
+                    <option value="EE">EE</option>
+                    <option value="IT">IT</option>
+                </select>
+            </div>
+            <div style="margin: 15px;">
+                <label>CGPA : </label>
+                <input type="text" id="cgpa">
+            </div>
+            <div style="margin: 15px;margin-left: 110px;">
+                <input type="button" value="Add" id="addStudent" onclick="addStudentData()">
+            </div>
+        </div>
+    </div><br>
+
+
+    <div style="border: 1px solid silver;text-align: center;width: 75%;margin-left: 110px;">
+        <div>
+            <h1 style="text-align: center;">Student Details in Table</h1>
+        </div>
+        <div id="display">
+
+        </div>
+    </div>
+
+    <script src="student_table.js"></script>
+</body>
+
+</html>

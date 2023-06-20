@@ -1,0 +1,45 @@
+@using LoginMVCCoreApp.ViewModel
+@model UsersVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    h2{
+        color:forestgreen;
+    }
+    h4{
+        text-align:center;
+        color:black;
+    }
+    dt{
+        font-weight:bold;
+    }
+    span{
+        font-weight:normal;
+    }
+</style>
+<h2>Welcome, @Model.User.Name</h2>
+
+<h4><b>Users Details</b></h4>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Password</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Password</td>
+                <td>@user.Address</td>
+            </tr>
+        }
+    </tbody>
+</table>

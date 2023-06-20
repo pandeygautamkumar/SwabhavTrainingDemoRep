@@ -1,0 +1,22 @@
+﻿@using ContactDALLib.Model
+@model Contact
+
+<style>
+    h1{
+        color:green;
+        margin-top:50px;
+        margin-left:10px;
+        text-align:center;
+    }
+    span{
+        color:cornflowerblue;
+        font-weight:bold;
+    }
+</style>
+
+<h1>Show Details of Id : @ViewBag.key </h1>
+<hr />
+<p>ID is :<span>  @Model.Id</span></p>
+<p>Name is :<span> @Model.Name</span> </p>
+<p>Mobile Number is :<span> @Model.MobileNumber</span> </p>
+<p>Address is :<span> @Model.Address </span></p>

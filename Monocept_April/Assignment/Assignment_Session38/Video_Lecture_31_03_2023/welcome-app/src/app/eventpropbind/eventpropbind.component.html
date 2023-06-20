@@ -1,0 +1,10 @@
+<div [style]="{color:divColor}">
+    <h1 [innerHTML]="title"></h1>
+    <!-- <h2 [innerHTML]="'Hello Gautam'"></h2> -->
+
+    <input type="button" value="click" (click)="clickHandler()">
+    <br>
+    <span [innerText]="count"></span><br><br>
+    <input type="button" value="Red" (click)="changeDivColor('red')">&nbsp;
+    <input type="button" value="Green" (click)="changeDivColor('Green')">
+</div>
